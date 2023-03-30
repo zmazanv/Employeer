@@ -7,6 +7,10 @@ public class SalariedEmployee extends people.Employee {
     // Instance variables
     private double yearlySalary;
 
+    // Static variables
+    final int daysInYear = 365;
+    final int daysInWeek = 7;
+
     // Constructors
     public SalariedEmployee(String firstName, String lastName, double yearlySalary) {
         super(firstName, lastName);
@@ -28,7 +32,7 @@ public class SalariedEmployee extends people.Employee {
     // Instance methods
     @Override
     public double calculatePay() {
-        double weeklySalary = yearlySalary / (365 / 7);
+        double weeklySalary = yearlySalary / (daysInYear / daysInWeek);
         DecimalFormat two = new DecimalFormat("#.##");
         weeklySalary = Double.parseDouble(two.format(weeklySalary));
         return weeklySalary;
